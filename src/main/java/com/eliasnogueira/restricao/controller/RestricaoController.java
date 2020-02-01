@@ -51,7 +51,7 @@ public class RestricaoController {
 
     @ApiOperation(value = "Consulta se um CPF possui ou não restrição")
     @ApiResponses({
-        @ApiResponse(code = 204, message = "Não possui restrição", response = Void.class),
+        @ApiResponse(code = 404, message = "Não possui restrição"),
         @ApiResponse(code = 200, message = "Pessoa com restrição", response = MessageDTO.class)
     })
     @GetMapping("/api/v1/restricoes/{cpf}")
@@ -67,7 +67,7 @@ public class RestricaoController {
 
     @ApiOperation(value = "Consulta se um CPF possui ou não restrição")
     @ApiResponses({
-        @ApiResponse(code = 204, message = "Não possui restrição"),
+        @ApiResponse(code = 404, message = "Não possui restrição"),
         @ApiResponse(code = 200, message = "Pessoa com restrição", response = com.eliasnogueira.restricao.dto.v2.MessageDTO.class)
     })
     @GetMapping("/api/v2/restricoes/{cpf}")
@@ -80,6 +80,6 @@ public class RestricaoController {
                 restricaoOptional.get().getTipoRestricao());
         }
 
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.notFound().build();
     }
 }
