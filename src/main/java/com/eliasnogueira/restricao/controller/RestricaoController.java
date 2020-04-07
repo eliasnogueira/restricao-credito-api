@@ -62,7 +62,7 @@ public class RestricaoController {
             throw new RestricaoException(MessageFormat.format("O CPF {0} possui restrição", cpf));
         }
 
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.notFound().build();
     }
 
     @ApiOperation(value = "Consulta se um CPF possui ou não restrição")
