@@ -55,7 +55,7 @@ public class RestricaoController {
         @ApiResponse(code = 200, message = "Pessoa com restrição", response = MessageDTO.class)
     })
     @GetMapping("/api/v1/restricoes/{cpf}")
-    ResponseEntity<Void> one(@PathVariable String cpf) {
+    public ResponseEntity<Void> one(@PathVariable String cpf) {
         Optional<Restricao> restricaoOptional = restricaoService.findByCpf(cpf);
 
         if (restricaoOptional.isPresent()) {
@@ -71,7 +71,7 @@ public class RestricaoController {
         @ApiResponse(code = 200, message = "Pessoa com restrição", response = com.eliasnogueira.restricao.dto.v2.MessageDTO.class)
     })
     @GetMapping("/api/v2/restricoes/{cpf}")
-    ResponseEntity<Void> oneV2(@PathVariable String cpf) {
+    public ResponseEntity<Void> oneV2(@PathVariable String cpf) {
         Optional<Restricao> restricaoOptional = restricaoService.findByCpf(cpf);
 
         if (restricaoOptional.isPresent()) {
