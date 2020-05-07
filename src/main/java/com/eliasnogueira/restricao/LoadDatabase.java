@@ -37,9 +37,8 @@ public class LoadDatabase {
 
     @Bean
     CommandLineRunner initDatabaseRestricao(RestricaoRepository restricaoRepository) {
-        return args -> {
-            dataToInsert().forEach((cpf, restricao) -> restricaoRepository.save(new Restricao(cpf, restricao)));
-        };
+        return args -> dataToInsert()
+            .forEach((cpf, restricao) -> restricaoRepository.save(new Restricao(cpf, restricao)));
     }
 
     private HashMap<String, String> dataToInsert() {
