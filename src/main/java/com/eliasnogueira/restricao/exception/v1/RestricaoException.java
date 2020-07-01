@@ -26,8 +26,10 @@ package com.eliasnogueira.restricao.exception.v1;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
+@EqualsAndHashCode(callSuper = false)
 @AllArgsConstructor
 public class RestricaoException extends RuntimeException {
 
