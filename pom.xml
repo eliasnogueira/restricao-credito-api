@@ -10,16 +10,17 @@
 
     <properties>
         <java.version>11</java.version>
-        <springfox.version>2.9.2</springfox.version>
+        <springfox.version>2.10.5</springfox.version>
         <modelmapper.version>2.3.8</modelmapper.version>
         <lombok.version>1.18.12</lombok.version>
-        <hibernate-jpamodelgen.version>5.4.17.Final</hibernate-jpamodelgen.version>
+        <hibernate-jpamodelgen.version>6.0.0.Alpha5</hibernate-jpamodelgen.version>
+        <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
     </properties>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.3.0.RELEASE</version>
+        <version>2.3.1.RELEASE</version>
     </parent>
 
     <dependencies>
@@ -57,6 +58,12 @@
         </dependency>
 
         <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-data-rest</artifactId>
+            <version>${springfox.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.modelmapper</groupId>
             <artifactId>modelmapper</artifactId>
             <version>${modelmapper.version}</version>
@@ -87,7 +94,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
+                <version>${maven.compiler.plugin.version}</version>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
