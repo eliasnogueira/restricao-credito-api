@@ -44,6 +44,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class RestricaoController {
 
     private final RestricaoService restricaoService;
+    private static final String CPF_POSSUI_RESTRICAO = "CPF {0} possui restrição";
 
     public RestricaoController(RestricaoService restricaoService) {
         this.restricaoService = restricaoService;
@@ -59,7 +60,7 @@ public class RestricaoController {
         Optional<Restricao> restricaoOptional = restricaoService.findByCpf(cpf);
 
         if (restricaoOptional.isPresent()) {
-            throw new RestricaoException(MessageFormat.format("O CPF {0} possui restrição", cpf));
+            throw new RestricaoException(MessageFormat.format(CPF_POSSUI_RESTRICAO, cpf));
         }
 
         return ResponseEntity.notFound().build();
@@ -76,7 +77,7 @@ public class RestricaoController {
 
         if (restricaoOptional.isPresent()) {
             throw new com.eliasnogueira.restricao.exception.v2.RestricaoException(
-                MessageFormat.format("O CPF {0} possui restrição", cpf),
+                MessageFormat.format(CPF_POSSUI_RESTRICAO, cpf),
                 restricaoOptional.get().getTipoRestricao());
         }
 
